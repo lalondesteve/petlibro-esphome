@@ -1,3 +1,8 @@
+This is my fork of [petlibro-esphome](https://github.com/taylorfinnell/petlibro-esphome) for the PLAF108 smart feeder.
+
+The original project provides a workable configuration but does not include an actual stand-alone feeding program - 
+the file included here provides a standalone feeding program which provides hooks to also control it from Home Assistant.
+
 # petlibro-esphome
 
 A collection of alternative DIY open-source [ESPHome firmware](https://esphome.io) for [Petlibro](https://petlibro.com) series of smart cat/dog food feeders and water fountains devices.
