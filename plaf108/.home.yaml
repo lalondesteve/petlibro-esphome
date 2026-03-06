@@ -1,7 +1,6 @@
 # Home-specific features
 # This is an example of a home-specific include file for non-secret settings.
 mdns:
-  disabled: true
 
 web_server:
   port: 80

@@ -29,7 +29,7 @@ ota:
     id: !extend ota_default
 
 logger:
-  baud_rate: 0
+  baud_rate: 115200
   level: DEBUG
 
 web_server:
