@@ -11,7 +11,6 @@ esphome:
   project:
     name: "${project_name}"
     version: "${project_version}"
-  includes: includes/std_includes.h
 
 packages:
   home: !include .home.yaml
@@ -641,8 +640,10 @@ script:
   then:
   - logger.log: "Dispensing Food: Started"
   - lambda: |-
-      const auto now = std::chrono::system_clock::now();
-      id(last_food_dispense_attempt).publish_state(std::format("{:%FT%TZ}", now));
+      auto now = id(my_time).utcnow();
+      if (now.is_valid()) {
+        id(last_food_dispense_attempt).publish_state(now.strftime("%FT%TZ"));
+      }
   - script.execute: 
       id: watchdog_dispensing
       portions: !lambda return portions;
@@ -715,6 +716,8 @@ script:
   # Stop the watchdog
   - script.stop: watchdog_dispensing
   - lambda: |-
-      const auto now = std::chrono::system_clock::now();
-      id(last_food_dispense_success).publish_state(std::format("{:%FT%TZ}", now));
+      auto now = id(my_time).utcnow();
+      if (now.is_valid()) {
+        id(last_food_dispense_success).publish_state(now.strftime("%FT%TZ"));
+      }
   - logger.log: "Dispensing Food: Successful"
