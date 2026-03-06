@@ -218,6 +218,7 @@ switch:
     icon: mdi:alert-box-outline
     id: is_out_of_food
     name: "Out Of Food Alarm"
+    entity_category: CONFIG
     optimistic: true
     on_state:
     - script.execute: evaluate_alarms
@@ -227,6 +228,7 @@ switch:
     icon: mdi:alert-box-outline
     id: is_stalled
     name: "Motor Stall Alarm"
+    entity_category: CONFIG
     optimistic: true
     on_state:
     - script.execute: evaluate_alarms
@@ -236,6 +238,7 @@ switch:
     icon: mdi:alert-box-outline
     id: is_food_dispense_too_long
     name: "Food Dispensing Timed Out"
+    entity_category: CONFIG
     optimistic: true
     on_state:
     - script.execute: evaluate_alarms
@@ -311,6 +314,7 @@ number:
     icon: mdi:bowl
     id: manual_meal_size
     name: "Manual Meal Size"
+    entity_category: ""
     optimistic: true
     min_value: 1
     max_value: 10
@@ -322,6 +326,7 @@ number:
     icon: mdi:bowl
     id: meal_size_1
     name: "Meal 1 Size"
+    entity_category: ""
     optimistic: true
     min_value: 1
     max_value: 10
@@ -333,6 +338,7 @@ number:
     icon: mdi:bowl
     id: meal_size_2
     name: "Meal 2 Size"
+    entity_category: ""
     optimistic: true
     min_value: 1
     max_value: 10
@@ -344,6 +350,7 @@ number:
     icon: mdi:bowl
     id: meal_size_3
     name: "Meal 3 Size"
+    entity_category: ""
     optimistic: true
     min_value: 1
     max_value: 10
@@ -355,6 +362,7 @@ number:
     icon: mdi:bowl
     id: meal_size_4
     name: "Meal 4 Size"
+    entity_category: ""
     optimistic: true
     min_value: 1
     max_value: 10
@@ -366,6 +374,7 @@ number:
     icon: mdi:bowl
     id: meal_size_5
     name: "Meal 5 Size"
+    entity_category: ""
     optimistic: true
     min_value: 1
     max_value: 10
@@ -377,6 +386,7 @@ number:
     icon: mdi:bowl
     id: meal_size_6
     name: "Meal 6 Size"
+    entity_category: ""
     optimistic: true
     min_value: 1
     max_value: 10
@@ -388,6 +398,7 @@ number:
     icon: mdi:bowl
     id: meal_size_7
     name: "Meal 7 Size"
+    entity_category: ""
     optimistic: true
     min_value: 1
     max_value: 10
@@ -399,6 +410,7 @@ number:
     icon: mdi:bowl
     id: meal_size_8
     name: "Meal 8 Size"
+    entity_category: ""
     optimistic: true
     min_value: 1
     max_value: 10
@@ -420,6 +432,7 @@ datetime:
     id: meal_time_1
     type: time
     name: Meal Time 1
+    entity_category: ""
     optimistic: yes
     initial_value: "06:00:00"
     restore_value: true
@@ -436,6 +449,7 @@ datetime:
     id: meal_time_2
     type: time
     name: Meal Time 2
+    entity_category: ""
     optimistic: yes
     initial_value: "08:30:00"
     restore_value: true
@@ -452,6 +466,7 @@ datetime:
     id: meal_time_3
     type: time
     name: Meal Time 3
+    entity_category: ""
     optimistic: yes
     initial_value: "12:30:00"
     restore_value: true
@@ -468,6 +483,7 @@ datetime:
     id: meal_time_4
     type: time
     name: Meal Time 4
+    entity_category: ""
     optimistic: yes
     initial_value: "17:00:00"
     restore_value: true
@@ -484,6 +500,7 @@ datetime:
     id: meal_time_5
     type: time
     name: Meal Time 5
+    entity_category: ""
     optimistic: yes
     initial_value: "20:30:00"
     restore_value: true
@@ -500,6 +517,7 @@ datetime:
     id: meal_time_6
     type: time
     name: Meal Time 6
+    entity_category: ""
     optimistic: yes
     initial_value: "11:30:00"
     restore_value: true
@@ -516,6 +534,7 @@ datetime:
     id: meal_time_7
     type: time
     name: Meal Time 7
+    entity_category: ""
     optimistic: yes
     initial_value: "01:30:00"
     restore_value: true
@@ -532,6 +551,7 @@ datetime:
     id: meal_time_8
     type: time
     name: Meal Time 8
+    entity_category: ""
     optimistic: yes
     initial_value: "03:00:00"
     restore_value: true
