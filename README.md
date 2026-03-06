@@ -114,6 +114,21 @@ This ESPHome firmware for PLAF108 implements (almost) feature parity as the stoc
 - Switch to turn motor left
 - Switch to turn motor right
 - Sensor to show when the motor has done a quarter turn
+- Up to 8 scheduled meals with independent enable toggles
+- Independent meal size for each scheduled meal
+- Separate manual dispense button and manual meal size control
+- Home Assistant configuration grouping for meal schedules and portion settings
+
+### Home Assistant setup
+
+After adding the feeder to Home Assistant, open the device page and use the Configuration section to manage the schedule.
+
+1. Set the time for each meal slot you want to use.
+2. Enable the corresponding `Meal Time X Enable` switch.
+3. Set that slot's `Meal X Size`.
+4. Use `Manual Meal Size` for the front-end `Dispense Meal` button.
+
+This makes it possible to run different portion sizes across the day, such as a smaller breakfast and a larger evening meal, without changing one global meal-size slider.
 
 ### Unknowns
 

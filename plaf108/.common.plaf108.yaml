@@ -244,48 +244,56 @@ switch:
   - platform: template
     id: meal_time_1_enable
     name: "Meal Time 1 Enable"
+    entity_category: CONFIG
     optimistic: true
     restore_mode: RESTORE_DEFAULT_OFF
 
   - platform: template
     id: meal_time_2_enable
     name: "Meal Time 2 Enable"
+    entity_category: CONFIG
     optimistic: true
     restore_mode: RESTORE_DEFAULT_OFF
 
   - platform: template
     id: meal_time_3_enable
     name: "Meal Time 3 Enable"
+    entity_category: CONFIG
     optimistic: true
     restore_mode: RESTORE_DEFAULT_OFF
 
   - platform: template
     id: meal_time_4_enable
     name: "Meal Time 4 Enable"
+    entity_category: CONFIG
     optimistic: true
     restore_mode: RESTORE_DEFAULT_OFF
 
   - platform: template
     id: meal_time_5_enable
     name: "Meal Time 5 Enable"
+    entity_category: CONFIG
     optimistic: true
     restore_mode: RESTORE_DEFAULT_OFF
 
   - platform: template
     id: meal_time_6_enable
     name: "Meal Time 6 Enable"
+    entity_category: CONFIG
     optimistic: true
     restore_mode: RESTORE_DEFAULT_OFF
 
   - platform: template
     id: meal_time_7_enable
     name: "Meal Time 7 Enable"
+    entity_category: CONFIG
     optimistic: true
     restore_mode: RESTORE_DEFAULT_OFF
 
   - platform: template
     id: meal_time_8_enable
     name: "Meal Time 8 Enable"
+    entity_category: CONFIG
     optimistic: true
     restore_mode: RESTORE_DEFAULT_OFF
 
@@ -296,13 +304,102 @@ button:
     on_press:
     - script.execute: 
         id: dispense_food
-        meal_size: !lambda return id(meal_size).state;
+        portions: !lambda return (int) id(manual_meal_size).state;
 
 number:
   - platform: template
     icon: mdi:bowl
-    id: meal_size
-    name: "Meal Size"
+    id: manual_meal_size
+    name: "Manual Meal Size"
+    entity_category: CONFIG
+    optimistic: true
+    min_value: 1
+    max_value: 10
+    step: 1
+    restore_value: true
+
+  - platform: template
+    icon: mdi:bowl
+    id: meal_size_1
+    name: "Meal 1 Size"
+    entity_category: CONFIG
+    optimistic: true
+    min_value: 1
+    max_value: 10
+    step: 1
+    restore_value: true
+
+  - platform: template
+    icon: mdi:bowl
+    id: meal_size_2
+    name: "Meal 2 Size"
+    entity_category: CONFIG
+    optimistic: true
+    min_value: 1
+    max_value: 10
+    step: 1
+    restore_value: true
+
+  - platform: template
+    icon: mdi:bowl
+    id: meal_size_3
+    name: "Meal 3 Size"
+    entity_category: CONFIG
+    optimistic: true
+    min_value: 1
+    max_value: 10
+    step: 1
+    restore_value: true
+
+  - platform: template
+    icon: mdi:bowl
+    id: meal_size_4
+    name: "Meal 4 Size"
+    entity_category: CONFIG
+    optimistic: true
+    min_value: 1
+    max_value: 10
+    step: 1
+    restore_value: true
+
+  - platform: template
+    icon: mdi:bowl
+    id: meal_size_5
+    name: "Meal 5 Size"
+    entity_category: CONFIG
+    optimistic: true
+    min_value: 1
+    max_value: 10
+    step: 1
+    restore_value: true
+
+  - platform: template
+    icon: mdi:bowl
+    id: meal_size_6
+    name: "Meal 6 Size"
+    entity_category: CONFIG
+    optimistic: true
+    min_value: 1
+    max_value: 10
+    step: 1
+    restore_value: true
+
+  - platform: template
+    icon: mdi:bowl
+    id: meal_size_7
+    name: "Meal 7 Size"
+    entity_category: CONFIG
+    optimistic: true
+    min_value: 1
+    max_value: 10
+    step: 1
+    restore_value: true
+
+  - platform: template
+    icon: mdi:bowl
+    id: meal_size_8
+    name: "Meal 8 Size"
+    entity_category: CONFIG
     optimistic: true
     min_value: 1
     max_value: 10
@@ -324,6 +421,7 @@ datetime:
     id: meal_time_1
     type: time
     name: Meal Time 1
+    entity_category: CONFIG
     optimistic: yes
     initial_value: "06:00:00"
     restore_value: true
@@ -332,12 +430,15 @@ datetime:
         condition:
           switch.is_on: meal_time_1_enable
         then:
-        - script.execute: dispense_food
+        - script.execute:
+            id: dispense_food
+            portions: !lambda return (int) id(meal_size_1).state;
 
   - platform: template
     id: meal_time_2
     type: time
     name: Meal Time 2
+    entity_category: CONFIG
     optimistic: yes
     initial_value: "08:30:00"
     restore_value: true
@@ -346,12 +447,15 @@ datetime:
         condition:
           switch.is_on: meal_time_2_enable
         then:
-        - script.execute: dispense_food
+        - script.execute:
+            id: dispense_food
+            portions: !lambda return (int) id(meal_size_2).state;
 
   - platform: template
     id: meal_time_3
     type: time
     name: Meal Time 3
+    entity_category: CONFIG
     optimistic: yes
     initial_value: "12:30:00"
     restore_value: true
@@ -360,12 +464,15 @@ datetime:
         condition:
           switch.is_on: meal_time_3_enable
         then:
-        - script.execute: dispense_food
+        - script.execute:
+            id: dispense_food
+            portions: !lambda return (int) id(meal_size_3).state;
 
   - platform: template
     id: meal_time_4
     type: time
     name: Meal Time 4
+    entity_category: CONFIG
     optimistic: yes
     initial_value: "17:00:00"
     restore_value: true
@@ -374,12 +481,15 @@ datetime:
         condition:
           switch.is_on: meal_time_4_enable
         then:
-        - script.execute: dispense_food
+        - script.execute:
+            id: dispense_food
+            portions: !lambda return (int) id(meal_size_4).state;
 
   - platform: template
     id: meal_time_5
     type: time
     name: Meal Time 5
+    entity_category: CONFIG
     optimistic: yes
     initial_value: "20:30:00"
     restore_value: true
@@ -388,12 +498,15 @@ datetime:
         condition:
           switch.is_on: meal_time_5_enable
         then:
-        - script.execute: dispense_food
+        - script.execute:
+            id: dispense_food
+            portions: !lambda return (int) id(meal_size_5).state;
 
   - platform: template
     id: meal_time_6
     type: time
     name: Meal Time 6
+    entity_category: CONFIG
     optimistic: yes
     initial_value: "11:30:00"
     restore_value: true
@@ -402,12 +515,15 @@ datetime:
         condition:
           switch.is_on: meal_time_6_enable
         then:
-        - script.execute: dispense_food
+        - script.execute:
+            id: dispense_food
+            portions: !lambda return (int) id(meal_size_6).state;
 
   - platform: template
     id: meal_time_7
     type: time
     name: Meal Time 7
+    entity_category: CONFIG
     optimistic: yes
     initial_value: "01:30:00"
     restore_value: true
@@ -416,12 +532,15 @@ datetime:
         condition:
           switch.is_on: meal_time_7_enable
         then:
-        - script.execute: dispense_food
+        - script.execute:
+            id: dispense_food
+            portions: !lambda return (int) id(meal_size_7).state;
 
   - platform: template
     id: meal_time_8
     type: time
     name: Meal Time 8
+    entity_category: CONFIG
     optimistic: yes
     initial_value: "03:00:00"
     restore_value: true
@@ -430,7 +549,9 @@ datetime:
         condition:
           switch.is_on: meal_time_8_enable
         then:
-        - script.execute: dispense_food
+        - script.execute:
+            id: dispense_food
+            portions: !lambda return (int) id(meal_size_8).state;
 
 text_sensor:
   - platform: template
@@ -503,10 +624,10 @@ script:
 # Ensure meal dispesning finishes in a reasonable time
 - id: watchdog_dispensing
   mode: single
-  # parameters:
-  #   meal_size: int
+  parameters:
+    portions: int
   then:
-  - delay: !lambda return id(meal_size).state*2*id(motor_sensor_delay_ms);
+  - delay: !lambda return portions * 2 * id(motor_sensor_delay_ms);
   - script.stop: dispense_food
   - logger.log: "Dispensing Food: Watchdog timeout!"
   - switch.turn_on: is_food_dispense_too_long
@@ -515,8 +636,8 @@ script:
 # Dispense a meal
 - id: dispense_food
   mode: single
-  # parameters:
-  #   #meal_size: int
+  parameters:
+    portions: int
   then:
   - logger.log: "Dispensing Food: Started"
   - lambda: |-
@@ -524,7 +645,7 @@ script:
       id(last_food_dispense_attempt).publish_state(std::format("{:%FT%TZ}", now));
   - script.execute: 
       id: watchdog_dispensing
-      #meal_size: !lambda return meal_size;
+      portions: !lambda return portions;
   # Check if we're in motor_stalled
   - if:
       condition: 
@@ -543,7 +664,7 @@ script:
   - while:
       condition:
         lambda: |-
-          return id(present_motor_sensor_triggers) < id(meal_size).state*2;
+          return id(present_motor_sensor_triggers) < portions * 2;
       then:
       # Check the motor is actually moving - we should see motor trigger sensors in no more then
       # 6 seconds. (4-5 was typically measured). Note: there's probably a stall sensor, but I'm not
@@ -587,7 +708,7 @@ script:
                 - switch.turn_on: motor_left
           else:
           - lambda: |-
-              ESP_LOGD("logger", "Dispensing Food: %.0f%%", (id(present_motor_sensor_triggers) / (id(meal_size).state*2) * 100));
+              ESP_LOGD("logger", "Dispensing Food: %.0f%%", (id(present_motor_sensor_triggers) / (portions * 2.0f) * 100));
           - lambda: |-
               id(last_motor_sensor_triggers) = id(present_motor_sensor_triggers);
   - switch.turn_off: motor_left
