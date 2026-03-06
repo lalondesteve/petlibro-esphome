@@ -186,6 +186,7 @@ switch:
     icon: mdi:alert-circle
     id: alarm_led
     name: 'Alarm'
+    entity_category: CONFIG
     pin: 
       number: GPIO10
       mode: 
